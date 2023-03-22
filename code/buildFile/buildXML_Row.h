@@ -1,6 +1,8 @@
 #ifndef BUILDXML_ROW_H
 #define BUILDXML_ROW_H
-#include "string"
+#include <string>
+#include <vector>
+#include <unordered_map>
 struct flowInformation{
     std::string id; 
     std::string type;
@@ -33,10 +35,12 @@ private:
     int m_carNum; //total number of cars
     double m_penetrationRate;
     int m_flowNum; //the number of car flow
+    std::unordered_map<std::string, flowInformation> flowInfo_umap;
+    std::unordered_map<std::string, flowType> flowType_umap;
 public:
     BuildXML_Row();
     ~BuildXML_Row();
-    void extractFeature_Row();
+    void extractFeature_Row(); //read and get the information of 'Row' from intermediate file
 };
 
 #endif
