@@ -3,11 +3,10 @@ using namespace std;
 namespace fs = std::filesystem;
 
 const unordered_set<string> HttpRequest::DEFAULT_HTML{
-            "/index", "/helper", "/compile", "/show",
-             "/welcome", "/video", "/picture", };
+            "/rou",  "/sumo", };
 
 const unordered_map<string, int> HttpRequest::DEFAULT_HTML_TAG {
-            {"/compile.html", 1},  };
+            {"/rou.html", 1},  };
 
 void HttpRequest::Init() {
     method_ = path_ = version_ = body_ = "";
@@ -64,7 +63,7 @@ bool HttpRequest::parse(Buffer& buff) {
 
 void HttpRequest::ParsePath_() {
     if(path_ == "/") {
-        path_ = "/index.html"; 
+        path_ = "/rou.html"; 
     }
     else {
         for(auto &item: DEFAULT_HTML) { //通过根据当前post请求中用户需要的html页面，返将对应的html地址加入path路径中作为response发送给用户。
