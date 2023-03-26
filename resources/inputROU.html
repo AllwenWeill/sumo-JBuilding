@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://cdn.jsdelivr.cn/npm/@bootcss/v3.bootcss.com@1.0.53/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/dashboard/">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="sumo.html">sumo仿真平台</a>
+        </div>
+        <!--        <div class="alert alert-success" role="alert">Completed successfully once！</div>-->
+        <div id="navbar" class="navbar-collapse collapse">
+            <!--            <ul class="nav navbar-nav navbar-right">-->
+            <!--                <li><a href="#">Dashboard</a></li>-->
+            <!--                <li><a href="#">Settings</a></li>-->
+            <!--                <li><a href="#">Profile</a></li>-->
+            <!--                <li><a href="#">Help</a></li>-->
+            <!--            </ul>-->
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="sumo.html">home <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">rou</a></li>
+                <li><a href="#">net</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+            <!--            <ul class="nav nav-sidebar">-->
+            <!--                <li><a href="">Nav item</a></li>-->
+            <!--                <li><a href="">Nav item again</a></li>-->
+            <!--                <li><a href="">One more nav</a></li>-->
+            <!--                <li><a href="">Another nav item</a></li>-->
+            <!--                <li><a href="">More navigation</a></li>-->
+            <!--            </ul>-->
+            <!--            <ul class="nav nav-sidebar">-->
+            <!--                <li><a href="">Nav item again</a></li>-->
+            <!--                <li><a href="">One more nav</a></li>-->
+            <!--                <li><a href="">Another nav item</a></li>-->
+            <!--            </ul>-->
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="fun1"><h1>rou参数自定义</h1></div>
+            <form action="rou.html" class="basic-grey" method="get">
+                <h4><strong>车辆定义</strong></h4>
+                <div class="form-group">
+                    <label>
+                        <span>car_number：</span>
+                        <input type="text" name="car_num" placeholder="请满足车辆数>=1（以下参数间使用分号分隔）">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>id:</span>
+                        <input type="text" name="carId" placeholder="请输入自定义车辆ID">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>type:</span>
+                        <input type="text" name="typename" placeholder="请输入自定义车辆type">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span> color:</span>
+                        <input type="text" name="color" placeholder="请输入自定义车辆color">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>departLane:</span>
+                        <input type="text" name="departLane" placeholder="请输入车辆进入仿真的车道">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>departPos:</span>
+                        <input type="text" name="departPos" placeholder="请输入车辆进入路网的位置">
+                    </label>
+                </div>
+                <div class="form-group">
+
+                    <label>
+                        <span>departSpeed:</span>
+                        <input type="text" name="departSpeed" placeholder="请输入车辆进入路网的速度">
+                    </label>
+                </div>
+                <div class="form-group">
+
+                    <label>
+                        <span>arrivalLane:</span>
+                        <input type="text" name="departLane" placeholder="请输入车辆驶出仿真的车道">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>departPos:</span>
+                        <input type="text" name="departPos" placeholder="请输入车辆驶出路网的位置">
+                    </label>
+                </div>
+                <div class="form-group">
+
+                    <label>
+                        <span>arrivalSpeed:</span>
+                        <input type="text" name="arrivalSpeed" placeholder="请输入车辆离开路网的速度">
+                    </label>
+                </div>
+                <h4><strong>车辆类型</strong></h4>
+                <div class="form-group">
+                    <label>
+                        <span>accel:</span>
+                        <input type="text" name="accel" placeholder="请输入车辆加速度">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>decel:</span>
+                        <input type="text" name="decel" placeholder="请输入车辆减速度">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>sigma:</span>
+                        <input type="text" name="sigma" placeholder="请输入车辆缺陷系数">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>maxspeed:</span>
+                        <input type="text" name="maxSpeed" placeholder="请输入车辆最大速度">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>length:</span>
+                        <input type="text" name="length" placeholder="请输入车辆长度">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>tau:</span>
+                        <input type="text" name="tau" placeholder="请输入车头时距">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>vClass:</span>
+                        <input type="text" name="vClass" placeholder="请输入车辆类型：private/pedestrian/passenger/taxi">
+                    </label>
+                </div>
+                <!--                <div class="form-group">-->
+                <!--                    <label>-->
+                <!--                        <span> vClass:</span>-->
+                <!--                        <select name="color">-->
+                <!--                            <option value="private">privata</option>-->
+                <!--                            <option value="pedestrian">pedestrian</option>-->
+                <!--                            <option value="passenger">passenger</option>-->
+                <!--                            <option value="taxi">taxi</option>-->
+                <!--                        </select>-->
+                <!--                    </label>-->
+                <!--                </div>-->
+                <div class="form-group">
+                    <label>
+                        <span>car-following model:</span>
+                        <input type="text" name="car-following model"
+                               placeholder="请输入跟车模型：Krauss/IDM/W99/Widemann/ACC/CACC">
+                    </label>
+                </div>
+                <!--                <div class="form-group">-->
+                <!--                    <label>-->
+                <!--                        <span> car-following model:</span>-->
+                <!--                        <select name="car-following model">-->
+                <!--                            <option value="Krauss">Krauss</option>-->
+                <!--                            <option value="IDM">IDM</option>-->
+                <!--                            <option value="W99">W99</option>-->
+                <!--                            <option value="Wiedemann">Wiedemann</option>-->
+                <!--                            <option value="ACC">ACC</option>-->
+                <!--                            <option value="CACC">CACC</option>-->
+                <!--                        </select>-->
+                <!--                    </label>-->
+                <!--                </div>-->
+                <div class="form-group">
+                    <label>
+                        <span>Lane-Changing Models:</span>
+                        <input type="text" name="Lane-Changing Models"
+                               placeholder="请输入换道模型：LC2013/SL2015/DK2008">
+                    </label>
+                </div>
+
+<!--                <div class="form-group">-->
+<!--                    <label>-->
+<!--                        <span> Lane-Changing Models:</span>-->
+<!--                        <select name="Lane-Changing Models">-->
+<!--                            <option value="LC2013">LC2013</option>-->
+<!--                            <option value="SL2015">SL2015</option>-->
+<!--                            <option value="DK2008">DK2008</option>-->
+<!--                        </select>-->
+<!--                    </label>-->
+<!--                </div>-->
+                <h4><strong>车流定义</strong></h4>
+                <div class="form-group">
+                    <label>
+                        <span>flow_number：</span>
+                        <input type="text" name="flow_num" placeholder="flow_number>=1">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>begin:</span>
+                        <input type="text" name="begin" placeholder="车流中第一辆车进入仿真时间">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>end:</span>
+                        <input type="text" name="end" placeholder="车流中最后一辆车驶出仿真时间">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span>freq:</span>
+                        <input type="text" name="end" placeholder="freq的三种形式：vehsperHour/period/probability">
+                    </label>
+                </div>
+                <!--                <div class="form-group">-->
+                <!--                    <label>-->
+                <!--                        <span>freq:</span>-->
+                <!--                        <input type="text" name="freq" >-->
+                <!--                    </label>-->
+                <!--                    <div class="redio-div">-->
+                <!--                        <label>-->
+                <!--                            &lt;!&ndash;                            <span>频率</span>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            <span>vehsperHour</span>&ndash;&gt;-->
+                <!--                            <input type="text" value="vehsperHour" name="flow"/>vehsperHour-->
+                <!--                            &lt;!&ndash;                            <span>period</span>&ndash;&gt;-->
+                <!--                            <input type="radio" value="period" name="flow"/>period-->
+                <!--                            &lt;!&ndash;                            <span>probability</span>&ndash;&gt;-->
+                <!--                            <input type="radio" value="probability" name="flow"/>probability-->
+                <!--                        </label>-->
+                <!--                    </div>-->
+
+                <!--                </div>-->
+                <div class="form-group">
+
+                    <label>
+                        <span>number:</span>
+                        <input type="text" name="number" placeholder="车流中车辆个数">
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span>&nbsp;</span>
+                        <input type="submit" class="button" value="submit information"
+                               onclick="javascript:alert('Completed successfully once！')">
+                    </label>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<!-- <script src="js/jquery.min.js"></script>-->
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
