@@ -3,10 +3,11 @@ using namespace std;
 namespace fs = std::filesystem;
 
 const unordered_set<string> HttpRequest::DEFAULT_HTML{
-            "/rou",  "/sumo", };
+            "/index", "/helper", "/inputROU", "/show",
+             "/welcome", };
 
 const unordered_map<string, int> HttpRequest::DEFAULT_HTML_TAG {
-            {"/rou.html", 1},  };
+            {"/inputROU.html", 1},  };
 
 void HttpRequest::Init() {
     method_ = path_ = version_ = body_ = "";
@@ -34,7 +35,7 @@ bool HttpRequest::parse(Buffer& buff) {
     while(buff.ReadableBytes() && state_ != FINISH) {   
         const char* lineEnd = search(buff.Peek(), buff.BeginWriteConst(), CRLF, CRLF + 2);
         std::string line(buff.Peek(), lineEnd);
-        printf("L: %d, state %d\n",__LINE__,state_);
+        //printf("L: %d, state %d\n",__LINE__,state_);
         switch(state_)  //此处各种错误/异常状态没有判断，鲁棒性不强，后期可以继续完善
         {
         case REQUEST_LINE:
@@ -50,6 +51,7 @@ bool HttpRequest::parse(Buffer& buff) {
             }
             break;
         case BODY:
+            cout<<"BODY"<<endl;
             ParseBody_(line);
             break;
         default:
@@ -63,7 +65,7 @@ bool HttpRequest::parse(Buffer& buff) {
 
 void HttpRequest::ParsePath_() {
     if(path_ == "/") {
-        path_ = "/rou.html"; 
+        path_ = "/index.html"; 
     }
     else {
         for(auto &item: DEFAULT_HTML) { //通过根据当前post请求中用户需要的html页面，返将对应的html地址加入path路径中作为response发送给用户。
@@ -123,12 +125,12 @@ void HttpRequest::ParsePost_() {
                     isFindCompileButton = true;
                     //svParser(codeText);
                 }
-                if(post_.count("inputText")){
+                if(post_.count("carID")){
                     cout<<"post_.count(inputText)";
                     isFindCompileButton = true;
                     //svParser(codeText);
                     if(svParser(codeText))
-                         path_ = "/compiled.html"; //content-type:text/html
+                         path_ = "/inputROU.html"; //content-type:text/html
                     else
                         path_ = "/error.html";
                 }
