@@ -115,21 +115,22 @@ int HttpRequest::ConverHex(char ch) {
 
 void HttpRequest::ParsePost_() {
     if(method_ == "POST" && header_["Content-Type"] == "application/x-www-form-urlencoded") {
-        std::string codeText = ParseFromUrlencoded_() + "\n";
+        std::string unparsedContent= ParseFromUrlencoded_() + "\n";
+        cout<<"path:"<<path_<<endl;
         if(DEFAULT_HTML_TAG.count(path_)) {
-            cout<<"path____"<<path_;
+            cout<<"path____"<<path_<<endl;
             int tag = DEFAULT_HTML_TAG.find(path_)->second;
-            if(tag == 1) { //如果是编译页面
-                if(post_.count("sendbtn")){
-                    cout<<"post_.count(sendbtn)";
+            if(tag == 1) { //如果是inputROU页面
+                // if(post_.count("sendbtn")){
+                //     cout<<"post_.count(sendbtn)";
+                //     isFindCompileButton = true;
+                //     //svParser(codeText);
+                // }
+                if(post_.count("car_num")){ //post_不包含解析内容，此处需要修改为：解析unparsedContent内容
+                    cout<<"post_.count(car_num)";
                     isFindCompileButton = true;
                     //svParser(codeText);
-                }
-                if(post_.count("carID")){
-                    cout<<"post_.count(inputText)";
-                    isFindCompileButton = true;
-                    //svParser(codeText);
-                    if(svParser(codeText))
+                    if(svParser(unparsedContent))
                          path_ = "/inputROU.html"; //content-type:text/html
                     else
                         path_ = "/error.html";
@@ -169,10 +170,10 @@ string HttpRequest::ParseFromUrlencoded_() {
     if(body_.size() == 0) { return nullptr; }
     // cout<<body_<<endl;
     std::string key, value;
+    std::string getContent; //post表单内容(body)
     int num = 0;
     int n = body_.size();
     int i = 0, j = 0;
-    std::string codeText;
     for(; i < n; i++) {
         char ch = body_[i];
         switch (ch) {
@@ -180,13 +181,13 @@ string HttpRequest::ParseFromUrlencoded_() {
             key = body_.substr(j, i - j);
             j = i + 1;
         case '+':
-            codeText.push_back(' ');
+            getContent.push_back(' ');
             continue;
         case '%': {//此处应该有bug
             int OCTnum = ConverHex(body_[i + 1]) * 16 + ConverHex(body_[i + 2]);
             cout << OCTnum << endl;
             char tmpCh = (char)OCTnum;
-            codeText.push_back(tmpCh);
+            getContent.push_back(tmpCh);
             i += 2;
             continue;
         }
@@ -198,15 +199,15 @@ string HttpRequest::ParseFromUrlencoded_() {
         default:
             break;
         }
-        codeText.push_back(body_[i]);
+        getContent.push_back(body_[i]);
     }
-    cout<<codeText<<endl;
+    cout<<"getContent:"<<getContent<<endl;
     assert(j <= i);
     if(post_.count(key) == 0 && j < i) {
         value = body_.substr(j, i - j);
         post_[key] = value;
     }
-    return codeText.substr(9, codeText.size());
+    return getContent;
 }
 
 std::string HttpRequest::path() const{
