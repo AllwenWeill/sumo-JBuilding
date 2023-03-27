@@ -31,7 +31,7 @@ WebServer::~WebServer() {
 void WebServer::Start() {
     int timeMS = -1;  /* epoll wait timeout == -1 无事件将阻塞 */
     if(!isClose_) { 
-        cout<<"========== Server start =========="<<endl; 
+        cout<<"========== sumo-JBuilding starting... =========="<<endl; 
     }
     while(!isClose_) {
         int eventCnt = epoller_->Wait(timeMS);

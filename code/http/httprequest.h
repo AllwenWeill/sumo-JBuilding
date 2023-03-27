@@ -45,7 +45,6 @@ private:
     std::string method_, path_, version_, body_;    //解析方法，请求路径，协议版本，请求体
     std::unordered_map<std::string, std::string> header_;   //请求头
     std::unordered_map<std::string, std::string> post_; //post请求表单数据
-
     static const std::unordered_set<std::string> DEFAULT_HTML;  //默认网页
     static const std::unordered_map<std::string, int> DEFAULT_HTML_TAG;
     static int ConverHex(char ch);  //转换16进制
