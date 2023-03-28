@@ -126,19 +126,31 @@ void HttpRequest::ParsePost_() {
                 //     isFindCompileButton = true;
                 //     //svParser(codeText);
                 // }
-                if(post_.count("car_num")){ //post_不包含解析内容，此处需要修改为：解析unparsedContent内容
-                    cout<<"post_.count(car_num)";
-                    isFindCompileButton = true;
-                    //svParser(codeText);
-                    if(svParser(unparsedContent))
-                         path_ = "/inputROU.html"; //content-type:text/html
-                    else
-                        path_ = "/error.html";
-                }
-                
+                // if(post_.count("car_num")){ //post_不包含解析内容，此处需要修改为：解析unparsedContent内容
+                //     cout<<"post_.count(car_num)";
+                //     isFindCompileButton = true;
+                //     //svParser(codeText);
+                //     if(svParser(unparsedContent))
+                //          path_ = "/inputROU.html"; //content-type:text/html
+                //     else
+                //         path_ = "/error.html";
+                // }
+                if(getXML(unparsedContent))
+                    path_ = "/inputROU.html";
+                else
+                    path_ = "/error.html";
             }
         }
     }   
+}
+
+bool getXML(std::string content){
+    BuildXML_Row BR(content); //该BR对象会自动构建rou.xml文件
+    fs::path filepath_rou = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml"
+    if(!fs::exists(filepath_rou)){
+        return false;
+    }
+    return true;
 }
 
 bool HttpRequest::svParser(const std::string& codeText){
@@ -156,7 +168,7 @@ bool HttpRequest::svParser(const std::string& codeText){
 }
 
 void writeParserResult(std::string res){
-    fs::path filepath= "/home/allwen77/Desktop/workstation/sv-WebServer/resources/ret.txt";//resources/ret.txt code/http/httprequest.cpp
+    fs::path filepath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/ret.txt";//resources/ret.txt code/http/httprequest.cpp
     if (!fs::exists(filepath)) {
         perror("Error: Invaild filepath.\n");
         exit(-1); 

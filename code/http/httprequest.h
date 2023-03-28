@@ -9,6 +9,7 @@
 #include <filesystem>
 #include <fstream>
 #include "../buffer/buffer.h"
+#include "../buildFile/buildXML_Rou.h"
 
 class HttpRequest {
 public:
@@ -50,5 +51,6 @@ private:
     static int ConverHex(char ch);  //转换16进制
 };
 void writeParserResult(std::string res);
+bool getXML_(std::string content); //解析body后的内容，并构建文件
 
 #endif //HTTP_REQUEST_H

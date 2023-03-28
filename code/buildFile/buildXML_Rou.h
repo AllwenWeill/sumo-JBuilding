@@ -32,6 +32,7 @@ struct flowType{
 
 class BuildXML_Row{
 private:
+    std::string m_content; //original text
     int m_carNum; //total number of cars
     double m_penetrationRate;
     int m_flowNum; //the number of car flow
@@ -39,6 +40,7 @@ private:
     std::unordered_map<std::string, flowType> flowType_umap;
 public:
     BuildXML_Row();
+    BuildXML_Row(std::string content);
     ~BuildXML_Row();
     void extractFeature_Row(); //read and get the information of 'Row' from intermediate file
 };
