@@ -30,7 +30,7 @@ struct flowType{
     std::string actionStepLength;
 };
 
-class BuildXML_Row{
+class BuildXML_Rou{
 private:
     std::string m_content; //original text
     int m_carNum; //total number of cars
@@ -39,10 +39,10 @@ private:
     std::unordered_map<std::string, flowInformation> flowInfo_umap;
     std::unordered_map<std::string, flowType> flowType_umap;
 public:
-    BuildXML_Row();
-    BuildXML_Row(std::string content);
-    ~BuildXML_Row();
-    void extractFeature_Row(); //read and get the information of 'Row' from intermediate file
+    BuildXML_Rou();
+    BuildXML_Rou(std::string content);
+    ~BuildXML_Rou();
+    void extractFeature_Rou(); //read and get the information of 'Row' from intermediate file
 };
 
 #endif

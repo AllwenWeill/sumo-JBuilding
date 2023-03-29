@@ -1,21 +1,21 @@
-#include "buildXML_Row.h"
+#include "buildXML_Rou.h"
 
-BuildXML_Row::BuildXML_Row(){
+BuildXML_Rou::BuildXML_Rou(){
 
 }
 
-BuildXML_Row::BuildXML_Row(std::string content)
+BuildXML_Rou::BuildXML_Rou(std::string content)
     :m_content(content)
 {
 
 }
 
-void BuildXML_Row::extractFeature_Row(){
+void BuildXML_Rou::extractFeature_Rou(){
     
 }
 
 
 
-BuildXML_Row::~BuildXML_Row(){
+BuildXML_Rou::~BuildXML_Rou(){
     
 }
