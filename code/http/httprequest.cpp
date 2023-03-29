@@ -135,7 +135,7 @@ void HttpRequest::ParsePost_() {
                 //     else
                 //         path_ = "/error.html";
                 // }
-                if(getXML(unparsedContent))
+                if(getXML_(unparsedContent))
                     path_ = "/inputROU.html";
                 else
                     path_ = "/error.html";
@@ -144,9 +144,9 @@ void HttpRequest::ParsePost_() {
     }   
 }
 
-bool getXML(std::string content){
-    BuildXML_Row BR(content); //该BR对象会自动构建rou.xml文件
-    fs::path filepath_rou = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml"
+bool getXML_(std::string content){
+    BuildXML_Rou BR(content); //该BR对象会自动构建rou.xml文件
+    fs::path filepath_rou = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml";
     if(!fs::exists(filepath_rou)){
         return false;
     }
