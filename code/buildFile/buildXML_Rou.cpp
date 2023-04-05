@@ -5,21 +5,30 @@ BuildXML_Rou::BuildXML_Rou() {
 }
 
 BuildXML_Rou::BuildXML_Rou(std::string content)
-    :m_content(content)
+    :m_content(content), m_curPtr(0)
 {
+    rouPath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml";
     init_keyword_uset();
+    extractFeature_Rou();
+    if (writeRou())
+        std::cout << "build rou.xml success!" << std::endl;
+    else
+        std::cout << "build rou.xml failed!" << std::endl;
 }
 
 int BuildXML_Rou::getKindsNum() {
+    std::cout<<"getKindsNum()0"<<std::endl;
     char tmpCh = m_content[m_curPtr];
     std::string tmpStr = "";
+    std::cout<<"getKindsNum()1"<<std::endl;
     while (tmpCh != ' ' && tmpCh != '\0') { //get 'carNum'
         tmpStr.push_back(tmpCh);
         advance();
         tmpCh = m_content[m_curPtr];
     }
+    std::cout<<"getKindsNum()2"<<std::endl;
     if (tmpStr != "car_kinds" && tmpStr != "type_kinds") {
-        std::perror("getCarNum() failed");
+        perror("getCarNum() failed");
     }
     advance(); //eat blank
     tmpCh = m_content[m_curPtr];
@@ -29,6 +38,7 @@ int BuildXML_Rou::getKindsNum() {
         advance();
         tmpCh = m_content[m_curPtr];
     }
+    std::cout<<"getKindsNum()3"<<std::endl;
     return stringToInt(tmpStr);
 }
 
@@ -44,10 +54,11 @@ int stringToInt(std::string str) {
 }
 
 void BuildXML_Rou::extractFeature_Rou() {
+    std::cout<<"extractFeature_Rou()1"<<std::endl;
     m_carKinds = getKindsNum();
     advance(); //eat &
     m_flows.resize(m_carKinds);
-    while (m_curPtr != m_content.size()) {
+    while (m_curPtr < m_content.size()) {
         char tmpCh = m_content[m_curPtr];
         std::string tmpStr = "";
         while (tmpCh != ' ' && tmpCh != '&' && tmpCh != '\0') {
@@ -202,6 +213,7 @@ void BuildXML_Rou::extractFeature_Rou() {
             perror("capture invaild token.\n");
         }
     }
+    std::cout<<"extractFeature_Rou()2"<<std::endl;
     //test:
     /*for (auto i : m_flows) {
         std::cout<<i.id<<std::endl;
@@ -221,6 +233,46 @@ std::string BuildXML_Rou::getValue() {
     return valueStr;
 }
 
+bool BuildXML_Rou::writeRou() {
+    std::ofstream rouFile;
+    rouFile.open(rouPath, ios::out);
+    rouFile << "<routes>" << std::endl;
+    for (int i = 0; i < m_carKinds; i++) {
+        rouFile << "    <flow ";
+        rouFile << "id=\"" << m_flows[i].id << "\"";
+        rouFile << " type=\"" << m_flows[i].type << "\"";
+        rouFile << " color=\"" << m_flows[i].color << "\"";
+        rouFile << " begin=\"" << m_flows[i].begin << "\"";
+        rouFile << " end=\"" << m_flows[i].end << "\"";
+        rouFile << " from=\"" << m_flows[i].from << "\"";
+        rouFile << " to=\"" << m_flows[i].to << "\"" << std::endl;
+        rouFile << "     number=\"" << m_flows[i].number << "\"";
+        rouFile << " departLane=\"" << m_flows[i].departLane << "\"";
+        rouFile << " arrivalLane=\"" << m_flows[i].arrivalLane << "\"" << std::endl;
+        rouFile << "    </flow>"<< std::endl;
+    }
+    for (int i = 0; i < m_flowTypeKinds; i++) {
+        rouFile << "    <vType";
+        rouFile << " id=" << m_flowTypes[i].id << "\"";
+        rouFile << " vClass=\"" << m_flowTypes[i].vClass << "\"";
+        rouFile << " lcStrategic=\"" << m_flowTypes[i].lcStrategic << "\"";
+        rouFile << " carFollowModel=\"" << m_flowTypes[i].carFollowingModel << "\"";
+        rouFile << " accel=\"" << m_flowTypes[i].accel << "\"" << std::endl;
+        rouFile << "     decel=\"" << m_flowTypes[i].decel << "\"";
+        rouFile << " emergencyDecel=\"" << m_flowTypes[i].emergencyDecel << "\"";
+        rouFile << " minGap=\"" << m_flowTypes[i].minGap << "\"";
+        rouFile << " tau=\"" << m_flowTypes[i].tau << "\"";
+        rouFile << " speedDev=\"" << m_flowTypes[i].speedDev << "\"";
+        rouFile << " sigma=\"" << m_flowTypes[i].sigma << "\"";
+        rouFile << " actionStepLength=\"" << m_flowTypes[i].actionStepLength <<"\"" << std::endl;
+        rouFile << "    </vType>" << std::endl;
+
+    }
+    rouFile << "</routes>" << std::endl;
+    if (!fs::exists(rouPath))
+        return false;
+    return true;
+}
 
 void BuildXML_Rou::init_keyword_uset() {
     keyword_uset.insert("flow_id");
@@ -246,6 +298,9 @@ void BuildXML_Rou::init_keyword_uset() {
     keyword_uset.insert("speedDev");
     keyword_uset.insert("sigma");
     keyword_uset.insert("actionStepLength");
+    if (fs::exists(rouPath)) {
+        remove(rouPath); //clear old xml file
+    }
 }
 
 void BuildXML_Rou::advance() {

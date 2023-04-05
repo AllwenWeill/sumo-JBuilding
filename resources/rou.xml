@@ -1,0 +1,8 @@
+<routes>
+    <flow id="1" type="1" color="1" begin="1" end="1" from="1" to="1"
+     number="1" departLane="1" arrivalLane="1"
+    </flow>
+    <vType id=1" vClass="1" lcStrategic="1" carFollowModel="1" accel="1"
+     decel="1" emergencyDecel="1" minGap="1" tau="1" speedDev="1" sigma="1" actionStepLength="1"
+    </vType>
+</routes>

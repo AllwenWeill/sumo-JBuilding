@@ -5,8 +5,12 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
-#include <cstring>
-#include <math.h>
+#include <filesystem>
+#include <fstream>
+#include <cstdio>
+#include <cmath>
+using namespace std;
+namespace fs = std::filesystem;
 struct flowInformation {
     std::string id;
     std::string type;
@@ -40,13 +44,13 @@ private:
     int m_carKinds; //total number of cars
     int m_flowTypeKinds; //total number of flows
     double m_penetrationRate;
-    int m_flowNum; //the number of car flow
     int m_curPtr; //pointer to the current character
     std::unordered_map<std::string, flowInformation> flowInfo_umap;
     std::unordered_map<std::string, flowType> flowType_umap;
     std::unordered_set<std::string> keyword_uset;
     std::vector<flowInformation> m_flows;
     std::vector<flowType> m_flowTypes;
+    fs::path rouPath;
 public:
     BuildXML_Rou();
     BuildXML_Rou(std::string content);
@@ -56,6 +60,7 @@ public:
     void init_keyword_uset();
     int getKindsNum(); //get m_carKinds & m_flowTypeKinds
     std::string getValue();
+    bool writeRou(); //build executable xml file
 };
 int stringToInt(std::string str);
 #endif
