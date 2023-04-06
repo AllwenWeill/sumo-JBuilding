@@ -115,7 +115,7 @@ int HttpRequest::ConverHex(char ch) {
 
 void HttpRequest::ParsePost_() {
     if(method_ == "POST" && header_["Content-Type"] == "application/x-www-form-urlencoded") {
-        std::string unparsedContent= ParseFromUrlencoded_() + "\n";
+        std::string unparsedContent= ParseFromUrlencoded_();
         cout<<"path:"<<path_<<endl;
         if(DEFAULT_HTML_TAG.count(path_)) {
             cout<<"path____"<<path_<<endl;
@@ -145,6 +145,7 @@ void HttpRequest::ParsePost_() {
 }
 
 bool getXML_(std::string content){
+    std::cout<<"myContent:"<<content.size()<<endl;
     BuildXML_Rou BR(content); //该BR对象会自动构建rou.xml文件
     fs::path filepath_rou = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml";
     if(!fs::exists(filepath_rou)){
