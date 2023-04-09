@@ -7,7 +7,7 @@ BuildXML_Rou::BuildXML_Rou() {
 BuildXML_Rou::BuildXML_Rou(std::string content)
     :m_content(content), m_curPtr(0)
 {
-    rouPath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml";
+    rouPath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Rou.rou.xml";
     init_keyword_uset();
     extractFeature_Rou();
     if (writeRou())

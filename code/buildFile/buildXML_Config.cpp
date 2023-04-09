@@ -7,7 +7,7 @@ BuildXML_Config::BuildXML_Config() {
 BuildXML_Config::BuildXML_Config(std::string content) 
 	:m_content(content), m_beginTime(0), m_endTime(0), m_stepTime(0.5)
 {
-	configPath = "../config.cfg.xml";
+	configPath = "../Config.cfg.xml";
 	if (fs::exists(configPath)) {
 		remove(configPath); //clear old xml file
 	}
