@@ -120,7 +120,7 @@ void HttpRequest::ParsePost_() {
         if(DEFAULT_HTML_TAG.count(path_)) {
             cout<<"path____"<<path_<<endl;
             int tag = DEFAULT_HTML_TAG.find(path_)->second;
-            if(tag == 1) { //如果是inputROU页面
+            if(tag == 1) { //inputROU.html
                 // if(post_.count("sendbtn")){
                 //     cout<<"post_.count(sendbtn)";
                 //     isFindCompileButton = true;
@@ -139,6 +139,12 @@ void HttpRequest::ParsePost_() {
                     path_ = "/inputROU.html";
                 else
                     path_ = "/error.html";
+            }
+            if(tag == 2){ //inputNET.html
+                path_ = "/inputNET.html";
+            }
+            if(tag == 3){ //inputCFG.html
+                path_ = "/inputCFG.html";
             }
         }
     }   
