@@ -3,11 +3,11 @@ using namespace std;
 namespace fs = std::filesystem;
 
 const unordered_set<string> HttpRequest::DEFAULT_HTML{
-            "/index", "/helper", "/inputROU", "/show",
+            "/index", "/helper", "/inputROU", "/inputNET", "inputCFG","/show",
              "/welcome", };
 
 const unordered_map<string, int> HttpRequest::DEFAULT_HTML_TAG {
-            {"/inputROU.html", 1},  };
+            {"/inputROU.html", 1}, {"/inputNET", 2}, {"inputCFG", 3}};
 
 void HttpRequest::Init() {
     method_ = path_ = version_ = body_ = "";
@@ -120,7 +120,7 @@ void HttpRequest::ParsePost_() {
         if(DEFAULT_HTML_TAG.count(path_)) {
             cout<<"path____"<<path_<<endl;
             int tag = DEFAULT_HTML_TAG.find(path_)->second;
-            if(tag == 1) { //如果是inputROU页面
+            if(tag == 1) { //inputROU.html
                 // if(post_.count("sendbtn")){
                 //     cout<<"post_.count(sendbtn)";
                 //     isFindCompileButton = true;
@@ -139,6 +139,12 @@ void HttpRequest::ParsePost_() {
                     path_ = "/inputROU.html";
                 else
                     path_ = "/error.html";
+            }
+            if(tag == 2){ //inputNET.html
+                path_ = "/inputNET.html";
+            }
+            if(tag == 3){ //inputCFG.html
+                path_ = "/inputCFG.html";
             }
         }
     }   
