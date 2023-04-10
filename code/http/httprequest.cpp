@@ -3,11 +3,11 @@ using namespace std;
 namespace fs = std::filesystem;
 
 const unordered_set<string> HttpRequest::DEFAULT_HTML{
-            "/index", "/helper", "/inputROU", "/show",
+            "/index", "/helper", "/inputROU", "/inputNET", "inputCFG","/show",
              "/welcome", };
 
 const unordered_map<string, int> HttpRequest::DEFAULT_HTML_TAG {
-            {"/inputROU.html", 1},  };
+            {"/inputROU.html", 1}, {"/inputNET", 2}, {"inputCFG", 3}};
 
 void HttpRequest::Init() {
     method_ = path_ = version_ = body_ = "";
