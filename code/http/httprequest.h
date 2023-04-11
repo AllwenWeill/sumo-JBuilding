@@ -10,6 +10,7 @@
 #include <fstream>
 #include "../buffer/buffer.h"
 #include "../buildFile/buildXML_Rou.h"
+#include "../buildFile/buildXML_Net.h"
 
 class HttpRequest {
 public:
@@ -41,7 +42,6 @@ private:
     void ParsePath_();
     void ParsePost_();
     std::string ParseFromUrlencoded_();
-    bool svParser(const std::string& codeText); //解析SystemVerilog源代码
     PARSE_STATE state_; //解析状态
     std::string method_, path_, version_, body_;    //解析方法，请求路径，协议版本，请求体
     std::unordered_map<std::string, std::string> header_;   //请求头
@@ -51,6 +51,7 @@ private:
     static int ConverHex(char ch);  //转换16进制
 };
 void writeParserResult(std::string res);
-bool getXML_(std::string content); //解析body后的内容，并构建文件
+bool getXML_Rou(std::string content); //解析body后的内容，并构建rou.xml文件
+bool getXML_Net(std::string content); //解析body后的内容，并构建net.xml文件
 
 #endif //HTTP_REQUEST_H

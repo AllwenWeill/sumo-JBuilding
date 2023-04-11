@@ -7,7 +7,7 @@ const unordered_set<string> HttpRequest::DEFAULT_HTML{
              "/welcome", };
 
 const unordered_map<string, int> HttpRequest::DEFAULT_HTML_TAG {
-            {"/inputROU.html", 1}, {"/inputNET", 2}, {"inputCFG", 3}};
+            {"/inputROU.html", 1}, {"/inputNET.html", 2}, {"inputCFG.html", 3}};
 
 void HttpRequest::Init() {
     method_ = path_ = version_ = body_ = "";
@@ -135,13 +135,16 @@ void HttpRequest::ParsePost_() {
                 //     else
                 //         path_ = "/error.html";
                 // }
-                if(getXML_(unparsedContent))
+                if(getXML_Rou(unparsedContent))
                     path_ = "/inputROU.html";
                 else
                     path_ = "/error.html";
             }
             if(tag == 2){ //inputNET.html
-                path_ = "/inputNET.html";
+                if(getXML_Net(unparsedContent))
+                    path_ = "/inputNET.html";
+                else
+                    path_ = "/error.html"; 
             }
             if(tag == 3){ //inputCFG.html
                 path_ = "/inputCFG.html";
@@ -150,29 +153,26 @@ void HttpRequest::ParsePost_() {
     }   
 }
 
-bool getXML_(std::string content){
-    std::cout<<"myContent:"<<content.size()<<endl;
+bool getXML_Rou(std::string content){
+    std::cout<<"myContent1:"<<content.size()<<endl;
     BuildXML_Rou BR(content); //该BR对象会自动构建rou.xml文件
-    fs::path filepath_rou = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/rou.xml";
+    fs::path filepath_rou = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Rou.rou.xml";
     if(!fs::exists(filepath_rou)){
         return false;
     }
     return true;
 }
 
-bool HttpRequest::svParser(const std::string& codeText){
-    // SourceManager SM(codeText);
-    // string *psm = &SM.fd.filememo;
-    // cout<<"codeText:"<<codeText<<endl;
-    // cout<<"------------"<<endl;
-    // cout << "SM.fd.filesize:" << SM.fd.filememo.size() << endl;
-    // Lexer lex(psm, SM.fd.filesize);
-    // cout<<endl;
-    // Parser par(lex.getTokenVector());
-    // string resParser = par.showParserInformation() + par.showErrorInformation() + par.showVariableInformation();
-    // writeParserResult(resParser);
+bool getXML_Net(std::string content){
+    std::cout<<"myContent2:"<<content.size()<<endl;
+    BuildXML_Net NET(content); //该BR对象会自动构建net.xml文件
+    fs::path filepath_net = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Net.net.xml";
+    if(!fs::exists(filepath_net)){
+        return false;
+    }
     return true;
 }
+
 
 void writeParserResult(std::string res){
     fs::path filepath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/ret.txt";//resources/ret.txt code/http/httprequest.cpp
