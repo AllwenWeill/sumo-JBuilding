@@ -11,6 +11,7 @@
 #include "../buffer/buffer.h"
 #include "../buildFile/buildXML_Rou.h"
 #include "../buildFile/buildXML_Net.h"
+#include "../buildFile/buildXML_Config.h"
 
 class HttpRequest {
 public:
@@ -53,5 +54,6 @@ private:
 void writeParserResult(std::string res);
 bool getXML_Rou(std::string content); //解析body后的内容，并构建rou.xml文件
 bool getXML_Net(std::string content); //解析body后的内容，并构建net.xml文件
+bool getXML_Cfg(std::string content); //解析body后的内容，并构建cfg.xml文件
 
 #endif //HTTP_REQUEST_H

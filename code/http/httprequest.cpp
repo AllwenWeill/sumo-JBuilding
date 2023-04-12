@@ -7,7 +7,7 @@ const unordered_set<string> HttpRequest::DEFAULT_HTML{
              "/welcome", };
 
 const unordered_map<string, int> HttpRequest::DEFAULT_HTML_TAG {
-            {"/inputROU.html", 1}, {"/inputNET.html", 2}, {"inputCFG.html", 3}};
+            {"/inputROU.html", 1}, {"/inputNET.html", 2}, {"/inputCFG.html", 3}};
 
 void HttpRequest::Init() {
     method_ = path_ = version_ = body_ = "";
@@ -147,7 +147,10 @@ void HttpRequest::ParsePost_() {
                     path_ = "/error.html"; 
             }
             if(tag == 3){ //inputCFG.html
-                path_ = "/inputCFG.html";
+                if(getXML_Cfg(unparsedContent))
+                    path_ = "/inputCFG.html";
+                else
+                    path_ = "/error.html";
             }
         }
     }   
@@ -173,6 +176,15 @@ bool getXML_Net(std::string content){
     return true;
 }
 
+bool getXML_Cfg(std::string content){
+    std::cout<<"myContent3:"<<content.size()<<endl;
+    BuildXML_Config CFG(content); //该BR对象会自动构建net.xml文件
+    fs::path filepath_cfg = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Config.cfg.xml";
+    if(!fs::exists(filepath_cfg)){
+        return false;
+    }
+    return true;
+}
 
 void writeParserResult(std::string res){
     fs::path filepath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/ret.txt";//resources/ret.txt code/http/httprequest.cpp
