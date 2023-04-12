@@ -16,6 +16,7 @@ SRC_PATH = ../code/http/httpconn.cpp \
 ../code/buffer/buffer.cpp \
 ../code/buildFile/buildXML_Rou.cpp \
 ../code/buildFile/buildXML_Net.cpp \
+../code/buildFile/buildXML_Config.cpp \
 ../code/main.cpp \
 
 OFILE = $(patsubst %.cpp,%.o,$(SRC_PATH))
