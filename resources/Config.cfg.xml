@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf - 8"?>
+<configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <input>
+        <net-file value="Two_Road.net.xml" / > 
+        <route-files value="test_rou.rou.xml" /> 
+    </input>
+<tripinfo>
+    <device.tripinfo.probability value="1"/>
+</tripinfo>
+<emissions>
+	<device.emissions.probability value="1"/>
+</emissions>
+<output>
+        <tripinfo-output value="tripinfo_output.xml"/>
+        <lanechange-output value="lanechange - output.xml"/>
+</output>
+<time>
+      <begin value="0" / > 
+      <end value="3600" / > 
+      <step-length value="0.5" / > 
+</time>
+</configuration>
