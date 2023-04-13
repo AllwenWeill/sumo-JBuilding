@@ -8,7 +8,7 @@ BuildXML_Config::BuildXML_Config(std::string content)
 	:m_content(content), m_curPtr(0)
 {
 	std::cout<<"Coming the BuildXML_Config"<<endl;
-	configPath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Config.cfg.xml";
+	configPath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Config.sumocfg";
 	if (fs::exists(configPath)) {
 		remove(configPath); //clear old xml file
 	}
