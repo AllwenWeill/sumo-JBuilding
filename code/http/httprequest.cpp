@@ -136,19 +136,19 @@ void HttpRequest::ParsePost_() {
                 //         path_ = "/error.html";
                 // }
                 if(getXML_Rou(unparsedContent))
-                    path_ = "/inputROU.html";
+                    path_ = "/inputNET.html";
                 else
                     path_ = "/error.html";
             }
             if(tag == 2){ //inputNET.html
                 if(getXML_Net(unparsedContent))
-                    path_ = "/inputNET.html";
+                    path_ = "/inputCFG.html";
                 else
                     path_ = "/error.html"; 
             }
             if(tag == 3){ //inputCFG.html
                 if(getXML_Cfg(unparsedContent))
-                    path_ = "/inputCFG.html";
+                    path_ = "/helper.html";
                 else
                     path_ = "/error.html";
             }
@@ -179,7 +179,7 @@ bool getXML_Net(std::string content){
 bool getXML_Cfg(std::string content){
     std::cout<<"myContent3:"<<content.size()<<endl;
     BuildXML_Config CFG(content); //该BR对象会自动构建net.xml文件
-    fs::path filepath_cfg = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Config.cfg.xml";
+    fs::path filepath_cfg = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/Config.sumocfg";
     if(!fs::exists(filepath_cfg)){
         return false;
     }
