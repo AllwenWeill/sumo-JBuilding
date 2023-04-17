@@ -41,6 +41,8 @@ void BuildXML_Net::extractFeature_Net() {
         }
         else {
             perror("capture invaild token.\n");
+            cout<<"tmpCh:"<<tmpCh<<"  "<<"tmpStr:"<<tmpStr<<endl;
+            break;
         }
     }
     //cout << m_sceneKind << ";" << m_netKind;
@@ -49,6 +51,7 @@ void BuildXML_Net::extractFeature_Net() {
 
 bool BuildXML_Net::selectNet() {
     if (m_sceneKind == "scene1" && m_netKind == "net1") {
+        cout<<"selectNet:"<<m_sceneKind<<"  "<<m_netKind;
         targetNetPath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/classicRoadNetwork/intersection.net.xml";
     }
     else if (m_sceneKind == "scene2" && m_netKind == "net2") {

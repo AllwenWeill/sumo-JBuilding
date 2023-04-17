@@ -211,6 +211,8 @@ void BuildXML_Rou::extractFeature_Rou() {
         }
         else {
             perror("capture invaild token.\n");
+            cout<<"tmpCh:"<<tmpCh<<"  "<<"tmpStr:"<<tmpStr<<endl;
+            break;
         }
     }
     std::cout<<"extractFeature_Rou()2"<<std::endl;
