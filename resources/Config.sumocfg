@@ -17,7 +17,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </output>
 <time>
       <begin value="1" / > 
-      <end value="3" / > 
-      <step-length value="2" / > 
+      <end value="1" / > 
+      <step-length value="1" / > 
 </time>
 </configuration>
