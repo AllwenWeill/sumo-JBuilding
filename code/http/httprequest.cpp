@@ -148,7 +148,7 @@ void HttpRequest::ParsePost_() {
             }
             if(tag == 3){ //inputCFG.html
                 if(getXML_Cfg(unparsedContent))
-                    path_ = "/helper.html";
+                    path_ = "/loading.html";
                 else
                     path_ = "/error.html";
             }

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>sv-JBuilding-ROU</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style1.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+<div class="preloader">
+    <div class="spinner">
+        <span class="spinner-rotate"></span>
+    </div>
+</div>
+
+
+<!-- NAVIGATION SECTION -->
+<div class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="header">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <!-- lOGO TEXT HERE -->
+                <a href="/" class="navbar-brand">sumo-JBuilding</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="smoothScroll" href="index.html">首页</a></li>
+                    <li><a class="smoothScroll" href="show.html">展示</a></li>
+                    <li><a class="smoothScroll" href="inputROU.html">ROU参数修改</a></li>
+                    <li><a class="smoothScroll" href="inputNET.html">net场景</a></li>
+                    <li><a class="smoothScroll" href="inputCFG.html">cfg参数设置</a></li>
+                    <li><a class="smoothScroll" href="helper.html">Helper</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HOME SECTION -->
+<section id="home">
+    <div class="container">
+        <div class="inputROU_div">
+            <!--            <div class="inputROU_div" style="float: left;">-->
+            <h1 data-wow-delay="0.6s"
+                style="font: 30px 'Trebuchet MS', Arial, Helvetica, sans-serif; text-align: center">ROU参数设置</h1>
+
+            <!--            <div class="col-xs-3">-->
+            <!--                <img src="images\bus.png" class="wow fadeInUp img-responsive img-circle"-->
+            <!--                     data-wow-delay="0.2s" alt="about image">-->
+            <!--            </div>-->
+            <!--            <div class="col-xs-3">-->
+            <!--                <img src="images\traffic-light.png" class="wow fadeInUp img-responsive img-circle"-->
+            <!--                     data-wow-delay="0.2s" alt="about image">-->
+            <!--            </div>-->
+            <div class="col-xs-2">
+                <img src="images\collision.png" class="wow fadeInUp img-responsive img-circle"
+                     data-wow-delay="0.2s" alt="about image">
+            </div>
+
+            <form id="inputROU_form" action="inputROU.html" method="post" class="smart-green">
+                <h1 style=text-align:center>flowInformation</h1>
+
+                <label>
+                    <span>flow_kinds:</span>
+                    <textarea type="textarea" name="car_kinds" class="form-control"
+                              placeholder="请满足车流类型数>=1（以下参数间使用分号分隔）"
+                              required="required"></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>flow_id:</span>
+                    <textarea type="textarea" name="flow_id" class="form-control"
+                              placeholder="请输入自定义车辆ID"></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>type:</span>
+                    <textarea type="textarea" name="type" class="form-control"
+                              placeholder="请输入自定义车辆type"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>color:</span>
+                    <textarea type="textarea" name="color" class="form-control"
+                              placeholder="请输入自定义车辆color"
+                              required="required"></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>begin:</span>
+                    <textarea type="textarea" name="begin" class="form-control"
+                              placeholder="车流中第一辆车进入仿真时间"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>end:</span>
+                    <textarea type="textarea" name="end" class="form-control"
+                              placeholder="车流中第一辆车驶出仿真时间"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>from:</span>
+                    <textarea type="textarea" name="from" class="form-control"
+                              placeholder="车流的发出地"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>to:</span>
+                    <textarea type="textarea" name="to" class="form-control"
+                              placeholder="车流的到达地"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>number:</span>
+                    <textarea type="textarea" name="number" class="form-control"
+                              placeholder="车流中的车辆数"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>departLane:</span>
+                    <textarea type="textarea" name="departLane" class="form-control"
+                              placeholder="请输入车辆进入仿真的车道"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>arrivalLane:</span>
+                    <textarea type="textarea" name="arrivalLane" class="form-control"
+                              placeholder="请输入车辆驶出仿真的车道"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+
+                <h1>TypeInformation</h1>
+                <label>
+                    <span>type_num:</span>
+                    <textarea type="textarea" name="type_num" class="form-control"
+                              placeholder="车辆类型数目"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>type_id:</span>
+                    <textarea type="textarea" name="type_id" class="form-control"
+                              placeholder="车辆类型id"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>vClass:</span>
+                    <textarea type="textarea" name="vClass" class="form-control"
+                              placeholder="请输入车辆类型：private/pedestrian/passenger/taxi"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>lcStrategic:</span>
+                    <textarea type="textarea" name="lcStrategic" class="form-control"
+                              placeholder="请输入换道策略(LC2013 / SL2015)"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>car-following model:</span>
+                    <textarea type="textarea" name="car-following model" class="form-control"
+                              placeholder="请输入跟车模型：Krauss/IDM/W99/Widemann/ACC/CACC"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>accel:</span>
+                    <textarea type="textarea" name="accel" class="form-control"
+                              placeholder="请输入车辆加速度"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>decel:</span>
+                    <textarea type="textarea" name="decel" class="form-control"
+                              placeholder="请输入车辆减速度"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>emergencyDecel:</span>
+                    <textarea type="textarea" name="emergencyDecel" class="form-control"
+                              placeholder="请输入紧急刹车减速度"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>minGap:</span>
+                    <textarea type="textarea" name="minGap" class="form-control"
+                              placeholder="请输入车辆间最小间距"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>tau:</span>
+                    <textarea type="textarea" name="tau" class="form-control"
+                              placeholder="请输入车头时距"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>speedDev:</span>
+                    <textarea type="textarea" name="speedDev" class="form-control"
+                              placeholder="请输入速度系数的偏差"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>sigma:</span>
+                    <textarea type="textarea" name="sigma" class="form-control"
+                              placeholder="请输入车辆缺陷系数"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <label>
+                    <span>actionStepLength:</span>
+                    <textarea type="textarea" name="actionStepLength" class="form-control"
+                              placeholder="请输入车辆执行决策逻辑（加速和变道）的间隔长度"
+                    ></textarea>
+                    <div class="error-msg"></div>
+                </label>
+
+                <div>
+                    <button id="inputROU_btn" type="submit" class="button">提交信息</button>
+                </div>
+
+            </form>
+        </div>
+        <!--        <div class="compile_div" style="float: left;">-->
+        <!--            <div>-->
+        <!--                <h1 data-wow-delay="0.6s">OUTPUT</h1>-->
+        <!--            </div>-->
+        <!--            <div>-->
+        <!--                      <textarea readonly type="textarea" name="outputText"-->
+        <!--                                id="output" required="required" style="float: left;"></textarea>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </div>
+</section>
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    $("button").click(function () {
+        let input = document.querySelector("#input")
+        let output = document.querySelector("#output")
+        var buf;
+        console.dir(input.value);
+        // $.post("ret.txt", {"inputvalue":input.value}, function (data,status,xhr) {
+        //      console.log("$post")
+        //      output.value=data
+        //      console.dir(data)
+        //      console.dir(status)
+        //      console.dir(xhr)
+
+        // });
+
+    });
+</script>
+</body>
+
+</html>

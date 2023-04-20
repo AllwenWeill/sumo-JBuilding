@@ -4,79 +4,178 @@
 <head>
 
      <meta charset="UTF-8">
+<style>
+		body {
+			margin: 0;
+			font-family: Arial, sans-serif;
+			background-color: #f8f8f8;
+		}
 
-     <title>sumo-JBuildding-首页</title>
-     <link rel="icon" href="images/favicon.ico">
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/animate.css">
-     <link rel="stylesheet" href="css/magnific-popup.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
+		nav {
+			background-color: #3c763d;
+			overflow: hidden;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+			z-index: 1;
+		}
+		nav a {
+			float: left;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+			transition: background-color 0.3s ease;
+		}
+		nav a:hover {
+			background-color: #ddd;
+			color: black;
+		}
+		.container {
+			margin-top: 80px;
+			padding: 20px;
+		}
+		h1 {
+			font-size: 48px;
+			margin-bottom: 30px;
+			color: #333333;
+			text-align: center;
+			font-weight: bold;
+            font-family: 新宋体;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+		}
+		p {
+			font-size: 18px;
+			line-height: 1.6;
+			margin-bottom: 30px;
+			color: #666;
+            font-family: 宋体;
+		}
+		.row {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -10px;
+		}
+		.col {
+			flex: 1;
+			padding: 0 10px;
+			box-sizing: border-box;
+			margin-bottom: 30px;
+			background-color: #fff;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+			cursor: pointer;
+			overflow: hidden;
+			position: relative;
+		}
+		.col:hover {
+			transform: translateY(-5px);
+			box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+		}
+		.col img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			object-position: center;
+		}
+		.col h2 {
+			font-size: 24px;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			color: #333;
+			text-align: center;
+		}
+		.col p {
+			font-size: 18px;
+			line-height: 1.6;
+			margin-bottom: 20px;
+			color: #666;
+			padding: 0 20px;
+			height: 80px;
+			overflow: hidden;
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		.col::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.3);
+			/*z-index: opacity 0;*/
+		    transition: opacity 0.3s ease;
+	}
+	.col:hover::before {
+		opacity: 1;
+	}
+	.col a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	.col:hover a {
+		opacity: 1;
+	}
+</style>
 
-     <!-- Main css -->
-     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
-
-     <!-- PRE LOADER -->
-     <div class="preloader">
-          <div class="spinner">
-               <span class="spinner-rotate"></span>
-          </div>
-     </div>
-
+<body>
 
      <!-- NAVIGATION SECTION -->
-     <div class="navbar custom-navbar navbar-fixed-top" role="navigation">
-          <div class="container" >
-               <div class="header">
-                    <div class="navbar-header">
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                    </button>
-                    <!-- lOGO TEXT HERE -->
-                    <a href="/" class="navbar-brand">sumo-JBuilding</a>
-                    </div>
-               <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                         <li><a class="smoothScroll" href="index.html">首页</a></li>
-                         <li><a class="smoothScroll" href="show.html">展示</a></li>
-                         <li><a class="smoothScroll" href="inputROU.html">ROU参数修改</a></li>
-                         <li><a class="smoothScroll" href="inputNET.html">net场景</a></li>
-                         <li><a class="smoothScroll" href="inputCFG.html">cfg参数设置</a></li>
-                         <li><a class="smoothScroll" href="helper.html">Helper</a></li>
-                    </ul>
-               </div>
-               </div>
-          </div>
-     </div>
+    <nav>
+		<a href="index.html">首页</a>
+		<a href="show.html">展示</a>
+		<a href="inputROU.html">rou参数定义</a>
+		<a href="inputNET.html">net场景选取</a>
+		<a href="inputCFG.html">cfg参数配置</a>
+		<a href="helper.html">helper</a>
+	</nav>
      <!-- HOME SECTION -->
-     <section id="home">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-offset-1 col-md-2 col-sm-3">
-                         <img src="images\sumo-logo.png" class="wow fadeInUp img-responsive img-circle"
-                              data-wow-delay="0.2s" alt="about image">
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                         <h1 class="wow fadeInUp" data-wow-delay="0.6s">sumo-JBuilding</h1>
-                         <p>本项目是一款针对sumo的在线仿真平台，主要针对于本课题小组成员的控制策略典型场景应用以及用户自定义场景的生成，具体场景介绍请移步<a href="show.html">展示</a></p>
-                    </div>
-               </div>
-          </div>
-     </section>
-     <!-- SCRIPTS -->
-     <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/smoothscroll.js"></script>
-     <script src="js/jquery.magnific-popup.min.js"></script>
-     <script src="js/magnific-popup-options.js"></script>
-     <script src="js/wow.min.js"></script>
-     <script src="js/custom.js"></script>
+     </div>
+	<div class="container">
+		<h1>欢迎来到sumo-JBuilding！
+		</h1>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目是一款针对sumo的在线仿真平台，主要针对于本课题小组成员的控制策略典型场景应用以及用户自定义场景的生成！以下是针对本项目主要文件的简单介绍。</p>
+		<div class="row">
+			<div class="col">
+				<img src="images/rou1.png" alt="图片1">
+				<h2>rou.xml</h2>
+				<p>rou.xml文件主要生成交通流中相关车辆以及车流的相关信息。</p >
+				<a href="inputROU.html">去定义</a>
+			</div>
+			<div class="col">
+					<img src="images/netedit.png" alt="图片2">
+					<h2>net.xml</h2>
+					<p>net.xml文件主要生成交通流场景、道路信息，您可以在里面选取典型场景也可以自定义场景。</p>
+<!--					<a href="inputNET.html">去选择</a>-->
+			</div>
+			<div class="col">
+				<img src="images/sumocfg.png" alt="图片3">
+				<h2>sumo.cfg</h2>
+				<p>sumo.cfg文件主要配置sumo运行相关信息。如仿真开始/结束时间，仿真步长、指定您需要生成的文件。</p>
+<!--				<a href="cfg.html">去配置</a>-->
+			</div>
+		</div>
+		<footer style="text-align: center;">
+			<p style="font-size: smaller;">版权所有 © 2023 - NEEMSYS-CoCoMix</p>
+		</footer>
+	</div>
 </body>
-
 </html>

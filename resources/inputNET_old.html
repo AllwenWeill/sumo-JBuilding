@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>sv-JBuilding-ROU</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style1.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- PRE LOADER -->
+<div class="preloader">
+    <div class="spinner">
+        <span class="spinner-rotate"></span>
+    </div>
+</div>
+
+
+<!-- NAVIGATION SECTION -->
+<div class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="header">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <!-- lOGO TEXT HERE -->
+                <a href="/" class="navbar-brand">sumo-JBuilding</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="smoothScroll" href="index.html">首页</a></li>
+                    <li><a class="smoothScroll" href="show.html">展示</a></li>
+                    <li><a class="smoothScroll" href="inputROU.html">ROU参数修改</a></li>
+                    <li><a class="smoothScroll" href="inputNET.html">net场景</a></li>
+                    <li><a class="smoothScroll" href="inputCFG.html">cfg参数设置</a></li>
+                    <li><a class="smoothScroll" href="helper.html">Helper</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HOME SECTION -->
+<section id="home">
+    <div class="container">
+        <div class="inputROU_div">
+            <!--            <div class="inputROU_div" style="float: left;">-->
+            <h1 data-wow-delay="0.6s"
+                style="font: 30px 'Trebuchet MS', Arial, Helvetica, sans-serif; text-align: center">net场景</h1>
+
+              <div class="col-xs-2">
+                <img src="images\net.png" class="wow fadeInUp img-responsive img-circle"
+                     data-wow-delay="0.2s" alt="about image">
+            </div>
+
+            <form id="inputROU_form" action="inputNET.html" method="post" class="smart-green">
+                <h1 style=text-align:center>经典路网</h1>
+
+                <label for="radio1">十字路口：</label>
+                <input type="radio" id="radio1" name="scene" value="scene1" onclick="showDropdown('scene1')">
+                <label for="radio2">高速公路：</label>
+                <input type="radio" id="radio2" name="scene" value="scene2" onclick="showDropdown('scene2')">
+                <label for="radio1">高速公路分流区：</label>
+                <input type="radio" id="radio3" name="scene" value="scene3" onclick="showDropdown('scene3')">
+                <label for="radio1">高速公路合流区：</label>
+                <input type="radio" id="radio4" name="scene" value="scene4" onclick="showDropdown('scene4')">
+                <label for="radio1">高速公路交织口：</label>
+                <input type="radio" id="radio5" name="scene" value="scene5" onclick="showDropdown('scene5')">
+                <br><br>
+                <label for="dropdown">具体路网：</label>
+                <select name="net" id="dropdown">
+                    <option value="">请选择</option>
+                    <option value="net1">双向三车道</option>
+                    <option value="net2">单向三车道</option>
+                    <option value="net3">单向三车道，一条出口匝道</option>
+                    <option value="net4">单向三车道，一条入口匝道</option>
+                </select>
+
+
+                <div class="error-msg"></div>
+                <div>
+                    <button id="inputROU_btn" type="submit" class="button">提交信息</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    $("button").click(function () {
+        let input = document.querySelector("#input")
+        let output = document.querySelector("#output")
+        var buf;
+        console.dir(input.value);
+
+
+    });
+
+    function showDropdown(option) {
+        var dropdown = document.getElementById("dropdown");
+        if (option === "scene1") {
+            dropdown.innerHTML = '<option value="">请选择</option><option value="net1">双向三车道</option>';
+        } else if (option === "scene2") {
+            dropdown.innerHTML = '<option value="">请选择</option><option value="net2">单向三车道</option>';
+        } else if (option === "scene3") {
+            dropdown.innerHTML = '<option value="">请选择</option><option value="net3">单向三车道，一条出口匝道</option>';
+        } else if (option === "scene4") {
+            dropdown.innerHTML = '<option value="">请选择</option><option value="net4">单向三车道，一条入口匝道</option>';
+        } else if (option === "scene5") {
+            dropdown.innerHTML = '<option value="">请选择</option><option value="net2">单向三车道</option>';
+        }
+    }
+
+</script>
+</body>
+
+</html>
