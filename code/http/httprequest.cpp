@@ -150,16 +150,15 @@ void HttpRequest::ParsePost_() {
                 cout<<"111"<<endl;
                 if(getXML_Cfg(unparsedContent)){
                     cout<<"222"<<endl;;
-                    fs::path filepath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/TEST.txt";
-                    // while(!fs::exists(filepath)){
-                    //     time_t now = time(0);
-                    //     curTime = ctime(&now);// 将其转换为字符串形式
-                    //     cout<<curTime <<endl;
-                    // }
                     time_t now1 = time(0);
                     preTime = ctime(&now1);// 将其转换为字符串形式
                     cout<<"time1:"<<preTime <<endl;
-                    sleep(2);
+                    fs::path filepath = "/home/allwen77/Desktop/workstation/sumo-JBuilding/resources/TEST.txt";
+                    while(!fs::exists(filepath)){
+                        // time_t now = time(0);
+                        // curTime = ctime(&now);// 将其转换为字符串形式
+                        // cout<<curTime <<endl;
+                    }
                     time_t now2 = time(0);
                     curTime = ctime(&now2);// 将其转换为字符串形式
                     cout<<"time2:"<<curTime <<endl;
