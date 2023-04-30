@@ -45,7 +45,7 @@ private:
     void ParsePost_();
     char* preTime;
     char* curTime;
-    double diffTime; //时间差值
+    double diffTime; //时间差值ms
     std::string ParseFromUrlencoded_();
     PARSE_STATE state_; //解析状态
     std::string method_, path_, version_, body_;    //解析方法，请求路径，协议版本，请求体

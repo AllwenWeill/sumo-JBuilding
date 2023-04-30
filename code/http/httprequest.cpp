@@ -163,7 +163,7 @@ void HttpRequest::ParsePost_() {
                     curTime = ctime(&now2);// 将其转换为字符串形式
                     cout<<"time2:"<<curTime <<endl;
                     diffTime = difftime(now2, now1);
-                    cout<<"time(now1-now2)"<<diffTime<<endl;
+                    cout<<"run time : "<<diffTime<<endl;
                     path_ = "/helper.html";
                 }
                 else
