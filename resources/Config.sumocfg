@@ -16,8 +16,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <lanechange-output value="lanechange - output.xml"/>
 </output>
 <time>
-      <begin value="1" / > 
-      <end value="1" / > 
-      <step-length value="1" / > 
+      <begin value="5" / > 
+      <end value="5" / > 
+      <step-length value="5" / > 
 </time>
 </configuration>

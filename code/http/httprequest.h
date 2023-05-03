@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <filesystem>
 #include <fstream>
+#include <ctime>
 #include "../buffer/buffer.h"
 #include "../buildFile/buildXML_Rou.h"
 #include "../buildFile/buildXML_Net.h"
@@ -42,6 +43,9 @@ private:
     void ParseBody_(const std::string& line);
     void ParsePath_();
     void ParsePost_();
+    char* preTime;
+    char* curTime;
+    double diffTime; //时间差值ms
     std::string ParseFromUrlencoded_();
     PARSE_STATE state_; //解析状态
     std::string method_, path_, version_, body_;    //解析方法，请求路径，协议版本，请求体
